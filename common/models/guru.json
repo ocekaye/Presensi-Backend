@@ -1,0 +1,64 @@
+{
+  "name": "Guru",
+  "base": "User",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "required": false
+    }
+  },
+  "properties": {
+    "nama": {
+      "type": "string"
+    },
+    "alamat": {
+      "type": "string"
+    },
+    "tempat_lahir": {
+      "type": "string"
+    },
+    "tanggal_lahir": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "no": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "kelasGurus": {
+      "type": "hasMany",
+      "model": "kelas_guru",
+      "foreignKey": ""
+    },
+    "tugasGurus": {
+      "type": "hasMany",
+      "model": "tugas_guru",
+      "foreignKey": ""
+    },
+    "jadwals": {
+      "type": "hasMany",
+      "model": "jadwal",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

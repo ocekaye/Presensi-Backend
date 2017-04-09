@@ -1,0 +1,28 @@
+{
+  "name": "jadwal",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "hari": {
+      "type": "string",
+      "required": true
+    },
+    "tanggal": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "presensis": {
+      "type": "hasMany",
+      "model": "Presensi",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

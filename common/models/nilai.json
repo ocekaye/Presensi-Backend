@@ -1,0 +1,31 @@
+{
+  "name": "Nilai",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tugasNilais": {
+      "type": "hasMany",
+      "model": "tugas_nilai",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

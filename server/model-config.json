@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongo"
+  },
+  "AccessToken": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "Account": {
+    "dataSource": "mongo",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Kelas": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "Siswa": {
+    "dataSource": "mongo",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Guru": {
+    "dataSource": "mongo",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Mapel": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "Presensi": {
+    "dataSource": "mongo",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Nilai": {
+    "dataSource": "mongo",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "wali": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "kelas_siswa": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "kelas_guru": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "tugas_kelas": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "tugas_guru": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "tugas_nilai": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "tugas": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "jadwal": {
+    "dataSource": "mongo",
+    "public": true
+  }
+}

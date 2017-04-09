@@ -1,0 +1,40 @@
+{
+  "name": "tugas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string",
+      "required": true
+    },
+    "mulai": {
+      "type": "string"
+    },
+    "selesai": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "kelasTugas": {
+      "type": "hasMany",
+      "model": "tugas_kelas",
+      "foreignKey": ""
+    },
+    "tugasGurus": {
+      "type": "hasMany",
+      "model": "tugas_guru",
+      "foreignKey": ""
+    },
+    "tugasNilais": {
+      "type": "hasMany",
+      "model": "tugas_nilai",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

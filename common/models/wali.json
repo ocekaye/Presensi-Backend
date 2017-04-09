@@ -1,0 +1,39 @@
+{
+  "name": "wali",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string",
+      "required": true
+    },
+    "alamat": {
+      "type": "string"
+    },
+    "tempat_lahir": {
+      "type": "string"
+    },
+    "tanggal_lahir": {
+      "type": "string"
+    },
+    "no": {
+      "type": "string"
+    },
+    "deskripsi": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "siswas": {
+      "type": "hasMany",
+      "model": "Siswa",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

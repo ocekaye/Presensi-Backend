@@ -1,0 +1,39 @@
+{
+  "name": "Mapel",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tugas": {
+      "type": "hasMany",
+      "model": "tugas",
+      "foreignKey": ""
+    },
+    "jadwals": {
+      "type": "hasMany",
+      "model": "jadwal",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

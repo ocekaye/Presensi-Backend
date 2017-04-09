@@ -1,0 +1,44 @@
+{
+  "name": "Account",
+  "base": "User",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string",
+      "id": false,
+      "required": false,
+      "index": false
+    },
+    "alamat": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "ttl": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

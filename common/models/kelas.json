@@ -1,0 +1,52 @@
+{
+  "name": "Kelas",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nama": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "kelasSiswas": {
+      "type": "hasMany",
+      "model": "kelas_siswa",
+      "foreignKey": ""
+    },
+    "kelasGurus": {
+      "type": "hasMany",
+      "model": "kelas_guru",
+      "foreignKey": ""
+    },
+    "kelasTugas": {
+      "type": "hasMany",
+      "model": "tugas_kelas",
+      "foreignKey": ""
+    },
+    "jadwals": {
+      "type": "hasMany",
+      "model": "jadwal",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
