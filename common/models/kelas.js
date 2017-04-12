@@ -45,11 +45,14 @@ module.exports = function(Kelas) {
 
   // bikin fungsi hapusSiswa
   Kelas.hapusSiswa = function(Id, siswaIds, cb) {
-    var KelasSiswa = Kelas.app.models.kelas_siswa;
+
+    var KelasSiswa = Kelas.app.models.kelas_siswa; //panggil model class kelas_siswa
+
+    // cari data berdasarkan kelasId dan siswaId di kelas_siswa
     KelasSiswa.find({where: {and: [{kelasId: Id}, {siswaId: siswaIds}]}},
       function (err, data) {
           console.log("Kelas", data);
-          if (err) cb(err);
+          if (err) cb(err); // return juka error
           else if (!data) { // return custom error jika data ditak di temukan
             var error = new Error();
             error.status = 404;
@@ -58,6 +61,7 @@ module.exports = function(Kelas) {
             cb(error);
           }
           else {
+            // hapus data
             KelasSiswa.destroyById(data[0].id, function (err, res) {
               if (err) cb(err);
               else cb(null, res);
