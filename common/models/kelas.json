@@ -19,24 +19,24 @@
   },
   "validations": [],
   "relations": {
-    "kelasSiswas": {
-      "type": "hasMany",
-      "model": "kelas_siswa",
+    "tugas": {
+      "type": "hasAndBelongsToMany",
+      "model": "Tugas",
       "foreignKey": ""
     },
-    "kelasGurus": {
-      "type": "hasMany",
-      "model": "kelas_guru",
+    "siswa": {
+      "type": "hasAndBelongsToMany",
+      "model": "Siswa",
       "foreignKey": ""
     },
-    "kelasTugas": {
-      "type": "hasMany",
-      "model": "tugas_kelas",
+    "guru": {
+      "type": "hasAndBelongsToMany",
+      "model": "Guru",
       "foreignKey": ""
     },
     "jadwals": {
       "type": "hasMany",
-      "model": "jadwal",
+      "model": "Jadwal",
       "foreignKey": ""
     }
   },

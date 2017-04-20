@@ -1,5 +1,5 @@
 {
-  "name": "jadwal",
+  "name": "Jadwal",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

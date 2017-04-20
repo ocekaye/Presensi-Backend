@@ -18,19 +18,22 @@ module.exports = function(Kelas) {
       else {
         // id kelas ada
         var KelasSiswa = Kelas.app.models.kelas_siswa;
+
         for (var i = 0; i < siswaIds.length; i++){
+
             var obj = {};
             obj.kelasId = id;
             obj.siswaId = siswaIds[i];
+
             KelasSiswa.create(obj, function (err, res) {
 
             });
         }
+
         cb(null, "added");
 
       }
     });
-
   }
 
   //expose tambahSiswa
@@ -43,15 +46,31 @@ module.exports = function(Kelas) {
     returns: {arg: 'result', type: 'string', root: true}
   });
 
+
   // bikin fungsi hapusSiswa
   Kelas.hapusSiswa = function(Id, siswaIds, cb) {
 
     var KelasSiswa = Kelas.app.models.kelas_siswa; //panggil model class kelas_siswa
 
+    var filter =  {
+      where: {
+        and: [
+            {
+              kelasId: Id
+            },
+            {
+              siswaId: siswaIds
+            }
+          ]
+      }
+    };
+
     // cari data berdasarkan kelasId dan siswaId di kelas_siswa
-    KelasSiswa.find({where: {and: [{kelasId: Id}, {siswaId: siswaIds}]}},
+    KelasSiswa.find(filter,
       function (err, data) {
+
           console.log("Kelas", data);
+
           if (err) cb(err); // return juka error
           else if (!data) { // return custom error jika data ditak di temukan
             var error = new Error();
@@ -79,4 +98,34 @@ module.exports = function(Kelas) {
     ],
     returns: {arg: 'result', type: 'string', root: true}
   });
+
+  //expose tambahSiswa
+  Kelas.remoteMethod('tugasdetail', {
+    http: { path: '/:id/tugas/detail', verb: 'get' },
+    accepts: [
+      { arg: 'id', type: 'string', required: true, description: 'Kelas id.'}
+    ],
+    returns: {arg: 'result', type: 'string', root: true}
+  });
+
+  // bikin fungsi presensidetail
+  Kelas.tugasdetail = function(id, cb) {
+
+    Kelas.findById(id, function (err, res) {
+
+      res.tugas({kelasId: id, include: 'mapel'}, function (err, tugas) {
+        if (err) cb(err);
+        else {
+          cb(null, tugas);
+        }
+      });
+    });
+    /*Kelas.tugas.findById({where: {kelasId: id}}, function (err, tugas) {
+      if (err) cb(err);
+      else {
+        cb(null, tugas);
+      }
+    });*/
+
+  }
 };

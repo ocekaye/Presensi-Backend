@@ -18,12 +18,12 @@
   "relations": {
     "tugas": {
       "type": "hasMany",
-      "model": "tugas",
+      "model": "Tugas",
       "foreignKey": ""
     },
     "jadwals": {
       "type": "hasMany",
-      "model": "jadwal",
+      "model": "Jadwal",
       "foreignKey": ""
     }
   },

@@ -12,7 +12,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "siswas": {
+      "type": "belongsTo",
+      "model": "Siswa",
+      "foreignKey": "siswaId"
+    }
+  },
   "acls": [
     {
       "accessType": "READ",

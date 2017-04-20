@@ -1,5 +1,5 @@
 {
-  "name": "tugas",
+  "name": "Tugas",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -19,20 +19,25 @@
   },
   "validations": [],
   "relations": {
-    "kelasTugas": {
-      "type": "hasMany",
-      "model": "tugas_kelas",
+    "kelas": {
+      "type": "hasAndBelongsToMany",
+      "model": "Kelas",
       "foreignKey": ""
     },
-    "tugasGurus": {
-      "type": "hasMany",
-      "model": "tugas_guru",
+    "guru": {
+      "type": "hasAndBelongsToMany",
+      "model": "Guru",
       "foreignKey": ""
     },
-    "tugasNilais": {
+    "nilais": {
       "type": "hasMany",
-      "model": "tugas_nilai",
+      "model": "Nilai",
       "foreignKey": ""
+    },
+    "mapel": {
+      "type": "belongsTo",
+      "model": "Mapel",
+      "foreignKey": "mapelId"
     }
   },
   "acls": [],

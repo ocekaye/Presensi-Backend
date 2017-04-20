@@ -33,9 +33,9 @@
   },
   "validations": [],
   "relations": {
-    "kelasSiswas": {
-      "type": "hasMany",
-      "model": "kelas_siswa",
+    "kelas": {
+      "type": "hasAndBelongsToMany",
+      "model": "Kelas",
       "foreignKey": ""
     },
     "nilais": {

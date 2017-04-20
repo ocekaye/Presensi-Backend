@@ -7,16 +7,26 @@
     "validateUpsert": true
   },
   "properties": {
-    "nama": {
+    "score": {
       "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "tugasNilais": {
-      "type": "hasMany",
-      "model": "tugas_nilai",
+    "tugas": {
+      "type": "hasAndBelongsToMany",
+      "model": "Tugas",
       "foreignKey": ""
+    },
+    "siswas": {
+      "type": "belongsTo",
+      "model": "Siswa",
+      "foreignKey": "siswaId"
+    },
+    "tugas": {
+      "type": "belongsTo",
+      "model": "Tugas",
+      "foreignKey": "tugasId"
     }
   },
   "acls": [

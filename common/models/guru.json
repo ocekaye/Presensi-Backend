@@ -36,19 +36,19 @@
   },
   "validations": [],
   "relations": {
-    "kelasGurus": {
-      "type": "hasMany",
-      "model": "kelas_guru",
+    "kelas": {
+      "type": "hasAndBelongsToMany",
+      "model": "Kelas",
       "foreignKey": ""
     },
-    "tugasGurus": {
-      "type": "hasMany",
-      "model": "tugas_guru",
+    "tugas": {
+      "type": "hasAndBelongsToMany",
+      "model": "Tugas",
       "foreignKey": ""
     },
     "jadwals": {
       "type": "hasMany",
-      "model": "jadwal",
+      "model": "Jadwal",
       "foreignKey": ""
     }
   },

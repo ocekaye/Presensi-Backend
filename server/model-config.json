@@ -71,35 +71,15 @@
     "$promise": {},
     "$resolved": true
   },
-  "wali": {
+  "Wali": {
     "dataSource": "mongo",
     "public": true
   },
-  "kelas_siswa": {
+  "Tugas": {
     "dataSource": "mongo",
     "public": true
   },
-  "kelas_guru": {
-    "dataSource": "mongo",
-    "public": true
-  },
-  "tugas_kelas": {
-    "dataSource": "mongo",
-    "public": true
-  },
-  "tugas_guru": {
-    "dataSource": "mongo",
-    "public": true
-  },
-  "tugas_nilai": {
-    "dataSource": "mongo",
-    "public": true
-  },
-  "tugas": {
-    "dataSource": "mongo",
-    "public": true
-  },
-  "jadwal": {
+  "Jadwal": {
     "dataSource": "mongo",
     "public": true
   }
