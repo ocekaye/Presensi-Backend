@@ -21,6 +21,16 @@
       "type": "hasMany",
       "model": "Presensi",
       "foreignKey": ""
+    },
+    "kelas": {
+      "type": "belongsTo",
+      "model": "Kelas",
+      "foreignKey": "kelasId"
+    },
+    "mapel": {
+      "type": "belongsTo",
+      "model": "Mapel",
+      "foreignKey": "mapelId"
     }
   },
   "acls": [],

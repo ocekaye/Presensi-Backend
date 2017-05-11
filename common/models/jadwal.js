@@ -2,7 +2,7 @@
 
 module.exports = function(Jadwal) {
 
-  //expose tambahSiswa
+
   Jadwal.remoteMethod('presensidetail', {
     http: { path: '/:id/presensis/detail', verb: 'get' },
     accepts: [
@@ -20,7 +20,8 @@ module.exports = function(Jadwal) {
         cb(null, presensi);
       }
     });
-
   }
+
+
 
 };
