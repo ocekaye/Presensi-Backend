@@ -42,7 +42,7 @@
       "foreignKey": ""
     },
     "tugas": {
-      "type": "hasAndBelongsToMany",
+      "type": "hasMany",
       "model": "Tugas",
       "foreignKey": ""
     },
