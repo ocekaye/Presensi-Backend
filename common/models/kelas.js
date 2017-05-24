@@ -126,6 +126,27 @@ module.exports = function(Kelas) {
         cb(null, tugas);
       }
     });*/
+  }
+  Kelas.remoteMethod('tugasByGuru', {
+    http: { path: '/:id/:guruId/tugas', verb: 'get' },
+    accepts: [
+      { arg: 'id', type: 'string', required: true, description: 'Kelas id.'},
+      { arg: 'guruId', type: 'string', required: true, description: 'Guru id.'}
+    ],
+    returns: {arg: 'result', type: 'string', root: true}
+  });
 
+  Kelas.tugasByGuru = function(id, guruId, cb) {
+    Kelas.findById(id, function (err, res) {
+      if (err) cb(err);
+      else {
+        res.tugas({where:{guruId: guruId}, include: ['kelas', 'mapel']}, function (err, tugas) {
+          if (err) cb(err);
+          else {
+            cb(null, tugas);
+          }
+        });
+      }
+    });
   }
 };
