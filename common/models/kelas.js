@@ -99,7 +99,7 @@ module.exports = function(Kelas) {
     returns: {arg: 'result', type: 'string', root: true}
   });
 
-  //expose tambahSiswa
+  //expose detail tugas
   Kelas.remoteMethod('tugasdetail', {
     http: { path: '/:id/tugas/detail', verb: 'get' },
     accepts: [
@@ -120,13 +120,48 @@ module.exports = function(Kelas) {
         }
       });
     });
-    /*Kelas.tugas.findById({where: {kelasId: id}}, function (err, tugas) {
+  }
+
+  //expose detail tugas all
+  Kelas.remoteMethod('alltugasdetail', {
+    http: { path: '/tugas/detail', verb: 'get' },
+    accepts: [
+    ],
+    returns: {arg: 'result', type: 'string', root: true}
+  });
+
+
+  Kelas.alltugasdetail = function(cb) {
+
+    Kelas.find({order: 'nama ASC'}, function (err, res) {
       if (err) cb(err);
       else {
-        cb(null, tugas);
+        var loop = [];
+        res.forEach(function (result, i) {
+          console.log(i);
+          getMapel(result, i, function (err, r, index) {
+            if (err) cb(null, res);
+            else {
+              res[index].detailTugas = r;
+              loop.push(1);
+              if (loop.length == res.length) cb(null, res);
+            }
+          });
+
+        });
       }
-    });*/
+    });
   }
+
+  function getMapel(data, i, cb) {
+    data.tugas({include: 'mapel'}, function (err , r) {
+      if (err) cb(null, r, i);
+      else {
+        cb(null, r, i);
+      }
+    });
+  }
+
   Kelas.remoteMethod('tugasByGuru', {
     http: { path: '/:id/:guruId/tugas', verb: 'get' },
     accepts: [
