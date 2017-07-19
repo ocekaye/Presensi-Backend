@@ -175,7 +175,7 @@ module.exports = function(Kelas) {
     Kelas.findById(id, function (err, res) {
       if (err) cb(err);
       else {
-        res.tugas({where:{guruId: guruId}, include: ['kelas', 'mapel']}, function (err, tugas) {
+        res.tugas({guruId: guruId, include: ['kelas', 'mapel']}, function (err, tugas) {
           if (err) cb(err);
           else {
             cb(null, tugas);
