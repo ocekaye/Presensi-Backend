@@ -51,7 +51,8 @@
   },
   "acls": [
     {
-      "accessType": "READ",
+      "property": "*",
+      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW"
