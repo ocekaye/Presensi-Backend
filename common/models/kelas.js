@@ -1,5 +1,5 @@
+var ObjectID = require('mongodb').ObjectID;
 module.exports = function(Kelas) {
-
   // bikin fungsi tambahSiswa
   Kelas.tambahSiswa = function(id, siswaIds, cb) {
 
@@ -172,16 +172,27 @@ x
   });
 
   Kelas.tugasByGuru = function(id, guruId, cb) {
-    Kelas.findById(id, function (err, res) {
-      if (err) cb(err);
-      else {
-        res.tugas({where:{guruId: guruId}, include: ['kelas', 'mapel']}, function (err, tugas) {
-          if (err) cb(err);
-          else {
-            cb(null, tugas);
-          }
-        });
-      }
-    });
+      Kelas.findById(id)
+        .then(kelas => {
+          return Kelas.app.models.TugasKelas.find({"where": {"kelasId": kelas.id}})
+        } )
+        .then((tugaskelas) =>{
+            console.log('tugaskelas', tugaskelas)
+            let tugasIds = tugaskelas.map(tk => tk.tugasId)
+          console.log(tugasIds)
+            return Kelas.app.models.Tugas.find({where: {id: {inq: tugasIds}}, include: ['kelas', 'mapel']})
+          }).then(tugas => cb(null, tugas)).catch(err => cb (err))
+    // Kelas.findById(id, function (err, kelas) {
+    //   if (err) cb(err);
+    //   else {
+    //     console.log(kelas)
+    //    kelas.tugas({where:{nama:"NYOBA"}, include: ['kelas', 'mapel']}, function (err, tugas) {
+    //       if (err) cb(err);
+    //       else {
+    //         cb(null, tugas);
+    //       }
+    //     });
+    //   }
+    // });
   }
 };
