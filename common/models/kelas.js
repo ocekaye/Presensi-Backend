@@ -178,8 +178,7 @@ x
         } )
         .then((tugaskelas) =>{
             console.log('tugaskelas', tugaskelas)
-            let tugasIds = tugaskelas.map(tk => tk.tugasId)
-          console.log(tugasIds)
+            var tugasIds = tugaskelas.map(tk => tk.tugasId)
             return Kelas.app.models.Tugas.find({where: {id: {inq: tugasIds}}, include: ['kelas', 'mapel']})
           }).then(tugas => cb(null, tugas)).catch(err => cb (err))
     // Kelas.findById(id, function (err, kelas) {
